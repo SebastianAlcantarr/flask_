@@ -1,7 +1,7 @@
 import psycopg2
 
 
-DATABASE_URL = "postgresql://basedatos:yULK0ktGBtQcvVB6oRIpdpQ8omFgaiFt@mydb:5432/basedatos_11n7"
+DATABASE_URL = "postgresql://basedatos:yULK0ktGBtQcvVB6oRIpdpQ8omFgaiFt@dpg-d1dfkmvfte5s73fk7scg-a/basedatos_11n7"
 
 
 

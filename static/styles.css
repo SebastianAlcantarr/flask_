@@ -1,0 +1,39 @@
+/* styles.css */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-family: 'Poppins', sans-serif;
+    color: deeppink;
+    text-align: center;
+}
+
+h2{
+     font-family: 'Poppins', sans-serif;
+    color: mediumvioletred;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Poppins', sans-serif;
+    color: mediumvioletred;
+    text-align: center;
+}
+
+h4{
+    font-family: 'Poppins', sans-serif;
+    font-size:12px;
+    text-align: left;
+}
+
+h5{
+    color:mediumpurple;
+
+}
+
+select{
+    text-align: center;
+}
+
+

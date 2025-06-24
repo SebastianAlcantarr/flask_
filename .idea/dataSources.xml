@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="identifier.sqlite" uuid="18c2490a-279c-4360-b3a0-3d7688460566">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="basedatos_11n7@dpg-d1dfkmvfte5s73fk7scg-a.oregon-postgres.render.com" uuid="dbc69192-62b4-4e1c-a0d5-eae5d32a7bc7">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-d1dfkmvfte5s73fk7scg-a.oregon-postgres.render.com:5432/basedatos_11n7?ssl=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

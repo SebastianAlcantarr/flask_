@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 from db import add_citas,get_citas
-
 app = Flask(__name__)
 
 @app.route('/')

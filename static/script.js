@@ -1,41 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const calendarEl = document.getElementById('calendar');
 
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        locale: 'es',
-        initialView: 'dayGridMonth',
-        events: '/api/appointments' // FullCalendar obtiene citas desde Flask aquí
-    });
 
-    calendar.render();
+function mostrarPopup(texto, color = '#28a745') {
+  const div = document.getElementById('mensaje-popup');
+  div.textContent = texto;
+  div.style.backgroundColor = color;
+  div.style.display = 'block';
 
-    document.getElementById('bookAppointment').addEventListener('click', async function () {
+  setTimeout(() => {
+    div.style.display = 'none';
+  }, 3000); // Se oculta automáticamente después de 3 segundos
+}
+
+function llenarCampos(texto,color='#ff0000'){
+const div = document.getElementById('mensaje-popup');
+  div.textContent = texto;
+  div.style.backgroundColor = color;
+  div.style.display = 'block';
+
+  setTimeout(() => {
+    div.style.display = 'none';
+  }, 1500);
+}
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('bookAppointment').addEventListener('click', async function () {
         const serviceType = document.getElementById('serviceType').value;
         const date = document.getElementById('appointmentDate').value;
         const time = document.getElementById('appointmentTime').value;
+        const nombre =document.getElementById('appointmentname').value;
 
-        if (!serviceType || !date || !time) {
-            alert('Por favor, completa todos los campos.');
-            return;
+        if (!serviceType || !date || !time|| !nombre) {
+          llenarCampos('Por favor, completa todos los campos.');
+          return;
         }
 
-        const response = await fetch('/api/book', {
+        try {
+          const response = await fetch('/api/book', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 service_type: serviceType,
                 date: date,
-                time: time
+                time: time,
+                nombre:nombre,
             })
-        });
+          });
 
-        if (response.ok) {
-            alert('Cita agendada con éxito');
-            calendar.refetchEvents(); // Vuelve a cargar las citas en el calendario
-        } else {
-            alert('Hubo un error al agendar la cita.');
+          if (response.ok) {
+            mostrarPopup('Cita agendada con éxito.');
+          } else {
+            llenarCampos('Llene todos los campos')
+          }
+        } catch (error) {
+          console.error('Error en la solicitud:', error);
+          alert('No se pudo conectar con el servidor.');
         }
+      });
     });
-});

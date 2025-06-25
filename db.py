@@ -3,8 +3,6 @@ import psycopg2
 
 DATABASE_URL = "postgresql://basedatos:yULK0ktGBtQcvVB6oRIpdpQ8omFgaiFt@dpg-d1dfkmvfte5s73fk7scg-a/basedatos_11n7"
 
-
-
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 def add_citas(service_type, date, time,nombre):

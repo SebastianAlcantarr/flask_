@@ -1,5 +1,3 @@
-
-
 function mostrarPopup(texto, color = '#28a745') {
   const div = document.getElementById('mensaje-popup');
   div.textContent = texto;
@@ -21,6 +19,7 @@ const div = document.getElementById('mensaje-popup');
     div.style.display = 'none';
   }, 1500);
 }
+
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('bookAppointment').addEventListener('click', async function () {
         const serviceType = document.getElementById('serviceType').value;
@@ -32,7 +31,6 @@ const div = document.getElementById('mensaje-popup');
           llenarCampos('Por favor, completa todos los campos.');
           return;
         }
-
         try {
           const response = await fetch('/api/book', {
             method: 'POST',

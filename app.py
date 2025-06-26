@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from db import add_citas,get_citas
+from db import agregar_citas,get_citas
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/api/appointments', methods=['GET'])
 def get_appointments_api():
@@ -22,11 +21,18 @@ def get_appointments_api():
 def book_appointment():
     try:
         data = request.get_json()
-        add_citas(data['service_type'], data['date'], data['time'],data['nombre'])
+        agregar_citas(data['service_type'], data['date'], data['time'],data['nombre'])
         return jsonify({'status': 'success'})
     except Exception as e:
-        print("⚠Error en la API /api/book:", e)
+        print("Error en la API /api/book:", e)
         return jsonify({'error': 'Error interno del servidor'}), 500
 
+        
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+ 
+ 

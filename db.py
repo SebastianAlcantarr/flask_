@@ -5,7 +5,7 @@ DATABASE_URL = "postgresql://basedatos:yULK0ktGBtQcvVB6oRIpdpQ8omFgaiFt@dpg-d1df
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-def add_citas(service_type, date, time,nombre):
+def agregar_citas(service_type, date, time,nombre):
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     c = conn.cursor()
     c.execute('''

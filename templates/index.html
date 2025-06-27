@@ -157,31 +157,61 @@
 
   <!-- JavaScript -->
   <script>
-    // Botón de prueba
-    document.getElementById('boton').addEventListener('click', function () {
-      console.error("prueba del botón");
-    });
+   function mostrarPopup(texto, color = '#28a745') {
+  const div = document.getElementById('mensaje-popup');
+  div.textContent = texto;
+  div.style.backgroundColor = color;
+  div.style.display = 'block';
 
-    // Funcionalidad Agendar Cita
-    document.getElementById('bookAppointment').addEventListener('click', function () {
-      const servicio = document.getElementById('serviceType').value;
-      const fecha = document.getElementById('appointmentDate').value;
-      const hora = document.getElementById('appointmentTime').value;
-      const nombre = document.getElementById('appointmentname').value;
-      const mensaje = document.getElementById('mensaje');
+  setTimeout(() => {
+    div.style.display = 'none';
+  }, 3000); // Se oculta automáticamente después de 3 segundos
+}
 
-      if (!servicio || !fecha || !hora || !nombre) {
-        mensaje.style.display = 'block';
-        mensaje.style.backgroundColor = '#f8d7da';
-        mensaje.style.color = '#721c24';
-        mensaje.innerText = "Todos los campos son obligatorios.";
-      } else {
-        mensaje.style.display = 'block';
-        mensaje.style.backgroundColor = '#d4edda';
-        mensaje.style.color = '#155724';
-        mensaje.innerText = `Cita agendada para ${nombre} el ${fecha} a las ${hora} para un servicio de ${servicio}.`;
-      }
-    });
+function llenarCampos(texto,color='#ff0000'){
+const div = document.getElementById('mensaje-popup');
+  div.textContent = texto;
+  div.style.backgroundColor = color;
+  div.style.display = 'block';
+
+  setTimeout(() => {
+    div.style.display = 'none';
+  }, 1500);
+}
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('bookAppointment').addEventListener('click', async function () {
+        const serviceType = document.getElementById('serviceType').value;
+        const date = document.getElementById('appointmentDate').value;
+        const time = document.getElementById('appointmentTime').value;
+        const nombre =document.getElementById('appointmentname').value;
+
+        if (!serviceType || !date || !time|| !nombre) {
+          llenarCampos('Por favor, completa todos los campos.');
+          return;
+        }
+        try {
+          const response = await fetch('/api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_type: serviceType,
+                date: date,
+                time: time,
+                nombre:nombre,
+            })
+          });
+
+          if (response.ok) {
+            mostrarPopup('Cita agendada con éxito.');
+          } else {
+            llenarCampos('Llene todos los campos')
+          }
+        } catch (error) {
+          console.error('Error en la solicitud:', error);
+          alert('No se pudo conectar con el servidor.');
+        }
+      });
   </script>
 </body>
 </html>

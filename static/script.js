@@ -20,8 +20,8 @@ const div = document.getElementById('mensaje-popup');
   }, 1500);
 }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('bookAppointment').addEventListener('click', async function () {
+    document.addEventListener('DOMContentLoaded', function (message) {
+      document.getElementById('bookAppointment').addEventListener('click', async function (message) {
         const serviceType = document.getElementById('serviceType').value;
         const date = document.getElementById('appointmentDate').value;
         const time = document.getElementById('appointmentTime').value;
@@ -50,7 +50,7 @@ const div = document.getElementById('mensaje-popup');
           }
         } catch (error) {
           console.error('Error en la solicitud:', error);
-          alert('No se pudo conectar con el servidor.');
+          alert('No se pudo conectar con el servidor.error', error);
         }
       });
     });

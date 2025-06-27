@@ -142,7 +142,7 @@
     </div>
 
     <!-- Mensaje -->
-    <div id="mensaje"></div>
+    <div id="mensaje-popup"></div>
 
     <!-- Botón Agendar -->
     <div class="btn-conteiner text-center">
@@ -157,27 +157,17 @@
 
   <!-- JavaScript -->
   <script>
-  function mostrarPopup(texto, color = '#28a745') {
-  const div = document.getElementById('mensaje-popup');
+function mostrarMensaje(texto, color = '#28a745', tiempo = 3000) {
+  const div = document.getElementById('mensaje');
   div.textContent = texto;
   div.style.backgroundColor = color;
   div.style.display = 'block';
 
   setTimeout(() => {
     div.style.display = 'none';
-  }, 3000); // Se oculta automáticamente después de 3 segundos
+  }, tiempo);
 }
 
-function llenarCampos(texto,color='#ff0000'){
-const div = document.getElementById('mensaje-popup');
-  div.textContent = texto;
-  div.style.backgroundColor = color;
-  div.style.display = 'block';
-
-  setTimeout(() => {
-    div.style.display = 'none';
-  }, 1500);
-}
 
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('bookAppointment').addEventListener('click', async function () {

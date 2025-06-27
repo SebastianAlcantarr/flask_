@@ -64,14 +64,7 @@ input[type="date"],input[type="nombre"],input[type="time"]{
 }
 
 
-.btn-conteiner {
-    display: flex;
-    justify-content: center;
-    --color-text: #151315;
-    --color-background: #ff13818f;
-    --color-outline: #ff145b80;
-    --color-shadow: #71156be1;
-  }
+
 
 
   .btn-content {
@@ -150,9 +143,49 @@ input[type="date"],input[type="nombre"],input[type="time"]{
         </div>
       </div>
     </div>
-    <div class="btn-conteiner">
-      <button id="bookAppointment" class="btn-content">Agendar Cita</button>
-    </div>
+
+   <div class="btn-conteiner">
+  <button id="bookAppointment" class="btn-content">Agendar Cita</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('bookAppointment').addEventListener('click', async function () {
+    const serviceType = document.getElementById('serviceType').value.trim();
+    const date = document.getElementById('appointmentDate').value.trim();
+    const time = document.getElementById('appointmentTime').value.trim();
+    const nombre = document.getElementById('appointmentname').value.trim();
+
+    if (!serviceType || !date || !time || !nombre) {
+      llenarCampos('Por favor, completa todos los campos.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_type: serviceType,
+          date: date,
+          time: time,
+          nombre: nombre,
+        })
+      });
+
+      if (response.ok) {
+        mostrarPopup('Cita agendada con éxito.');
+      } else {
+        llenarCampos('No se pudo agendar la cita. Inténtalo más tarde.');
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      alert('No se pudo conectar con el servidor.');
+    }
+  });
+});
+</script>
+
   <!-- JAVASCRIPT -->
 <script src="/static/script.js"></script>
 

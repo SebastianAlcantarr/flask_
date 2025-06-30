@@ -193,7 +193,7 @@ function mostrarMensaje(texto, color = '#28a745', tiempo = 3000) {
           });
 
           if (response.ok) {
-            mostrarPopup('Cita agendada con éxito.');
+            mostrarMensaje('Cita agendada con éxito.');
           } else {
             llenarCampos('Llene todos los campos')
           }

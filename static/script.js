@@ -20,7 +20,6 @@ const div = document.getElementById('mensaje-popup');
   }, 1500);
 }
 
-function guardar_bd() {
   document.addEventListener('DOMContentLoaded', function (message) {
     document.getElementById('bookAppointment').addEventListener('click', async function (message) {
       const serviceType = document.getElementById('serviceType').value;
@@ -56,7 +55,7 @@ function guardar_bd() {
     });
   });
 
-  document.querySelectorAll('input[type="text"]').forEach(input => {
+   function eliminar_datos(){document.querySelectorAll('input[type="text"]').forEach(input => {
     input.value = '';
   });
 

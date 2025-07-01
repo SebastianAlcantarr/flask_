@@ -97,7 +97,7 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Tipo de Servicio</h3>
-            <select id="serviceType" class="form-select mb-3" >
+            <select id="serviceType" class="form-select mb-3"  >
               <option value="">Selecciona un servicio</option>
               <option value="manicure">Manicure</option>
               <option value="pedicure">Pedicure</option>
@@ -146,15 +146,9 @@
 
     <!-- Botón Agendar -->
     <div class="btn-conteiner text-center">
-      <button id="bookAppointment" class="btn-content btn btn-primary"
+         <button id="bookAppointment" class="btn-content btn btn-primary" onclick= "mostrarPopup();llenarCampos()"
       >Agendar Cita</button>
     </div>
-
-    <!-- Botón de prueba -->
-    <div class="text-center mt-3">
-      <button id="boton" class="btn btn-secondary"   onclick="guardar_bd()"  >PRUEBA</button>
-    </div>
-  </div>
 
   <!-- JavaScript -->
     <script src="/static/script.js"></script>

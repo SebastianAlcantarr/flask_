@@ -1,0 +1,68 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(112, 13, 134, 0.305);
+}
+
+h1, h2, h3, h4, h5, h6, .card-title {
+  font-family: 'Poppins', sans-serif;
+  color: rgba(41, 5, 41, 0.582);
+}
+
+h1, .text-center {
+  text-align: center;
+}
+
+.card {
+  display:block;
+  flex-direction:column;
+  background-color: rgba(223, 79, 223, 0.582);
+  border-color: currentColor;
+  border: 3px solid #be5296;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap:  2px;
+  align-items: center;
+}
+
+input[type="date"], input[type="text"], input[type="time"], select, #serviceType {
+  display: flex;
+  width: 80%;
+  border: 10px solid #be5296;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+#boton_guardar {
+  color: white;
+  background-color: rgb(241, 0, 177);
+  border-color: #be5296;
+  justify-content: center;
+  margin-bottom: 2px;
+  margin-top: 20px ;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#boton_guardar:hover {
+  background: rgba(223, 79, 223, 0.582);
+  box-shadow: 0 0 10px rgba(112, 13, 134, 0.305);
+}
+
+#mensaje {
+  display: none;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: #d4edda;
+  color: #155724;
+  text-align: center;
+  font-weight: bold;
+}

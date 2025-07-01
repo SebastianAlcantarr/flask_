@@ -22,7 +22,7 @@ const div = document.getElementById('mensaje-popup');
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('bookAppointment').addEventListener('click', async function () {
+  document.getElementById('boton_guardar').addEventListener('click', async function () {
     const serviceType = document.getElementById('serviceType').value;
     const date = document.getElementById('appointmentDate').value;
     const time = document.getElementById('appointmentTime').value;
@@ -58,6 +58,65 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (error) {
       console.error('Error en la solicitud:', error);
       alert('No se pudo conectar con el servidor.');
+    }
+  });
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('boton_ver').addEventListener('click', async function () {
+    try {
+      const response = await fetch('/api/appointments', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) throw new Error('Respuesta no OK');
+
+      const data = await response.json();
+
+      // Seleccionamos el cuerpo de la tabla
+      const cuerpoTabla = document.getElementById('cuerpo_tabla');
+      cuerpoTabla.innerHTML = ''; // Limpiar tabla antes de insertar nuevos datos
+
+      // Recorrer cada cita y crear una fila
+      data.forEach(cita => {
+        const fila = document.createElement('tr');
+
+        // Crear celdas
+        const celdaId = document.createElement('td');
+        celdaId.textContent = cita.id;
+
+        const celdaServicio = document.createElement('td');
+        celdaServicio.textContent = cita.service_type;
+
+        const celdaFecha = document.createElement('td');
+        celdaFecha.textContent = cita.date;
+
+        const celdaHora = document.createElement('td');
+        celdaHora.textContent = cita.time;
+
+        const celdaNombre = document.createElement('td');
+        celdaNombre.textContent = cita.nombre;
+
+        // Agregar celdas a la fila
+        fila.appendChild(celdaId);
+        fila.appendChild(celdaServicio);
+        fila.appendChild(celdaFecha);
+        fila.appendChild(celdaHora);
+        fila.appendChild(celdaNombre);
+
+        // Agregar fila al cuerpo de la tabla
+        cuerpoTabla.appendChild(fila);
+      });
+
+    } catch (error) {
+      console.error('Error en la solicitud', error);
+      alert('No se conectó con el servidor');
     }
   });
 });

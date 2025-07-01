@@ -20,7 +20,7 @@
     <h2 class="text-center">
       Ingresar Tipo - Fecha - Hora y nombre de la persona
     </h2>
-
+  <div id="mensaje-popup"></div>
     <div class="row mt-5">
       <!-- Tipo de Servicio -->
       <div class="col-md-4">
@@ -72,35 +72,13 @@
     </div>
 
     <!-- Mensaje -->
-    <div id="mensaje-popup"></div>
+
 
     <!-- Botón Agendar -->
     <div class="btn-conteiner text-center">
          <button id="boton_guardar" class="btn-content btn btn-primary" onclick= "mostrarPopup();eliminar_datos()"
       >Agendar Cita</button>
     </div>
-
-     <button id="boton_ver">Ver citas</button>
-
-<table id="tabla_citas" border="1">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Servicio</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-  <tbody id="cuerpo_tabla">
-    <!-- Aquí irán las filas -->
-  </tbody>
-</table>
-
-
-      <div  class="btn-ver text-center">
-          <button id="boton_ver" class="btn_ver" onclick=""
-      </div>
 
   <!-- JavaScript -->
     <script src="/static/script.js"></script>

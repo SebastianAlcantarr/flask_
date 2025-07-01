@@ -97,7 +97,7 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Tipo de Servicio</h3>
-            <select id="serviceType" class="form-select mb-3">
+            <select id="serviceType" class="form-select mb-3"  onclick="reiniciarInputs()">
               <option value="">Selecciona un servicio</option>
               <option value="manicure">Manicure</option>
               <option value="pedicure">Pedicure</option>
@@ -113,7 +113,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Fecha</h4>
-            <input type="date" id="appointmentDate" />
+            <input type="date" id="appointmentDate"  onclick="reiniciarInputs()" />
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Hora</h5>
-            <input type="time" id="appointmentTime" />
+            <input type="time" id="appointmentTime" onclick="reiniciarInputs()" />
           </div>
         </div>
       </div>
@@ -146,12 +146,14 @@
 
     <!-- Botón Agendar -->
     <div class="btn-conteiner text-center">
-      <button id="bookAppointment" class="btn-content btn btn-primary">Agendar Cita</button>
+      <button id="bookAppointment" class="btn-content btn btn-primary"
+      onclick="reiniciarInputs()"
+      >Agendar Cita</button>
     </div>
 
     <!-- Botón de prueba -->
     <div class="text-center mt-3">
-      <button id="boton" class="btn btn-secondary">PRUEBA</button>
+      <button id="boton" class="btn btn-secondary"   onclick="reiniciarInputs()">PRUEBA</button>
     </div>
   </div>
 

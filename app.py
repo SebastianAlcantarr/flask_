@@ -1,5 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 from db import agregar_citas,get_citas
+
+from flask_cors import CORS
+from flask import Flask
+
+app = Flask(__name__)
+CORS(app)  # Permite solicitudes desde cualquier dominio
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,7 +17,7 @@ def index():
 @app.route('/api/appointments', methods=['GET'])
 def get_appointments_api():
     appointments = get_citas()
-    print("Citas:", appointments)  # Log para verificar contenido
+    print("Citas:", appointments)
     return jsonify([{
         'id': a[0],
         'service_type': a[1],

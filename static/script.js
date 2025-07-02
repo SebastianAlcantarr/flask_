@@ -72,9 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   boton.addEventListener('click', async function () {
     try {
-      const response = await fetch('/api/appointments', {
+     const response = await fetch('https://flask-7ebi.onrender.com/api/app', {
         method: 'GET'
-      });
+     });
+
 
       const data = await response.json();
       console.log('Datos obtenidos:', data);

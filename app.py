@@ -9,13 +9,15 @@ def index():
 @app.route('/api/appointments', methods=['GET'])
 def get_appointments_api():
     appointments = get_citas()
+    print("Citas:", appointments)  # Log para verificar contenido
     return jsonify([{
         'id': a[0],
         'service_type': a[1],
         'date': a[2],
         'time': a[3],
-        'nombre':a[4]
+        'nombre': a[4]
     } for a in appointments])
+
 
 @app.route('/api/book', methods=['POST'])
 def book_appointment():

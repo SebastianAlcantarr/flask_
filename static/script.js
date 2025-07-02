@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const boton = document.getElementById('cargarDatosBtn');
   const resultado = document.getElementById('resultado');

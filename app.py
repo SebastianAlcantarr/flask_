@@ -27,8 +27,16 @@ def book_appointment():
         print("Error en la API /api/book:", e)
         return jsonify({'error': 'Error interno del servidor'}), 500
 
+
+def ver_datos():
+   print(get_citas())
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
 
 

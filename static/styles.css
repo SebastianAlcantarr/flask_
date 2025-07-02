@@ -7,9 +7,9 @@ body {
   min-height: 100vh;
   --primary-color:  rgba(41, 5, 41, 0.8);
   --secondary-color: #541d40;
-  --background-color: rgba(160, 27, 149, 0.936);
+  --background-color: rgba(214, 145, 208, 0.936);
   --text-color: rgba(41, 5, 41, 0.8);
-  --card-bg: rgb(207, 59, 207);
+  --card-bg: rgb(219, 78, 184);
 }
 
 .container {
@@ -105,21 +105,21 @@ input[type="text"] {
 }
 
 #boton_guardar {
-  background-color: var(--primary-color);
-  color: rgba(255, 255, 255, 0.916);
+  background-color: rgb(151, 18, 118);
+  color: rgb(255, 255, 255);
   justify-content: ce;
   border: none;
   padding: 1rem 3rem;
   border-radius: 100px;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight:700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(241, 0, 177, 0.3);
+  box-shadow: 0 4px 15px rgba(176, 125, 163, 0.3);
 }
 
 #boton_guardar:hover {
-  background-color: rgba(241, 0, 177, 0.9);
+  background-color: rgba(121, 38, 99, 0.9);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(241, 0, 177, 0.4);
 }

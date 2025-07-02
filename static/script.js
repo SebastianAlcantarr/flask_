@@ -52,8 +52,51 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('appointmentTime').value = '';
         document.getElementById('appointmentname').value = '';
       } else {
-        llenarCampos('Error al agendar la cita');
+        llenarCampos('error al agendar la cita');
       }
+
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      alert('No se pudo conectar con el servidor.');
+    }
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const boton = document.getElementById('cargarDatosBtn');
+  const resultado = document.getElementById('resultado');
+
+  boton.addEventListener('click', async function () {
+    try {
+      const response = await fetch('/api/appointments', {
+        method: 'GET'
+      });
+
+      const data = await response.json();
+      console.log('Datos obtenidos:', data);
+
+      // Limpiar contenido anterior
+      resultado.innerHTML = '';
+
+      if (data.length === 0) {
+        resultado.innerText = 'No hay citas registradas.';
+        return;
+      }
+
+      // Mostrar citas
+      data.forEach(cita => {
+        const citaDiv = document.createElement('div');
+        citaDiv.innerHTML = `
+          <strong>ID:</strong> ${cita.id} <br>
+          <strong>Servicio:</strong> ${cita.service_type} <br>
+          <strong>Fecha:</strong> ${cita.date} <br>
+          <strong>Hora:</strong> ${cita.time} <br>
+          <strong>Nombre:</strong> ${cita.nombre}
+          <hr>
+        `;
+        resultado.appendChild(citaDiv);
+      });
 
     } catch (error) {
       console.error('Error en la solicitud:', error);

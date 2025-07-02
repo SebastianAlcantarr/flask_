@@ -26,4 +26,8 @@ def get_citas():
 
     citas = c.fetchall()
     conn.close()
+
+    print(citas)
     return citas
+
+

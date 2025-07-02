@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from db import agregar_citas,get_citas
 
-from flask_cors import CORS
-from flask import Flask
-
-app = Flask(__name__)
-CORS(app)  # Permite solicitudes desde cualquier dominio
 
 
 app = Flask(__name__)

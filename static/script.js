@@ -9,7 +9,8 @@ function mostrarPopup(texto, color = '#28a745') {
   }, 3000); // Se oculta automáticamente después de 3 segundos
 }
 
-function llenarCampos(texto,color='rgba(131,59,155,0.84)'){
+
+function llenarCampos(texto,color='rgb(131,59,155)'){
 const div = document.getElementById('mensaje-popup');
   div.textContent = texto;
   div.style.backgroundColor = color;
